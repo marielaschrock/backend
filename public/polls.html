@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>The Floor</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="hero polls-hero">
+        <h1>The Baby Bet Board</h1>
+
+        <form id="poll-form" class="polls-grid">
+            <div class="global-voter-name-section">
+                <label for="global-voter-name">Your Name for all Bets:</label>
+                <input type="text" id="global-voter-name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="poll-question" data-poll-name="gender">
+                <p>Place your bets: Boy or Girl?</p>
+                <label><input type="radio" name="gender" value="Boy"> Lay $5 on</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="gender-Boy-bar"></div>
+                    <span class="poll-label">Boy <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <label><input type="radio" name="gender" value="Girl"> Lay $5 on Girl</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="gender-Girl-bar"></div>
+                    <span class="poll-label">Girl <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <br>
+                <button type="submit" class="polls-button" data-poll="gender">Place Bet</button>
+                <div class="voter-records" id="records-gender">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+            
+            <div class="poll-question" data-poll-name="strictParent">
+                <p>Odds on the Strictest House Dealer:</p>
+                <label><input type="radio" name="strictParent" value="Elisabeth"> Elisabeth's Table</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="strictParent-Elisabeth-bar"></div>
+                    <span class="poll-label">Elisabeth <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <label><input type="radio" name="strictParent" value="Ben"> Ben's Table</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="strictParent-Ben-bar"></div>
+                    <span class="poll-label">Ben <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <br>
+                <button type="submit" class="polls-button" data-poll="strictParent">Place Bet</button>
+                <div class="voter-records" id="records-strictParent">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+
+            <div class="poll-question" data-poll-name="stinkier">
+                <p>Who's the wild card? Stinkiest Bet:</p>
+                <label><input type="radio" name="stinkier" value="Baby"> High Stakes on Baby</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="stinkier-Baby-bar"></div>
+                    <span class="poll-label">Baby <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <label><input type="radio" name="stinkier" value="Sam"> Lay it on Sam</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="stinkier-Sam-bar"></div>
+                    <span class="poll-label">Sam <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <br>
+                <button type="submit" class="polls-button" data-poll="stinkier">Place Bet</button>
+                <div class="voter-records" id="records-stinkier">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+
+            <div class="poll-question" data-poll-name="funAuntie">
+                <p>The Dealer's Choice: Most Fun Auntie?</p>
+                <label><input type="radio" name="funAuntie" value="Kat"> Bet on Kat</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="funAuntie-Kat-bar"></div>
+                    <span class="poll-label">Kat <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <label><input type="radio" name="funAuntie" value="Mariela"> Bet on Mariela</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="funAuntie-Mariela-bar"></div>
+                    <span class="poll-label">Mariela <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <br>
+                <button type="submit" class="polls-button" data-poll="funAuntie">Place Bet</button>
+                <div class="voter-records" id="records-funAuntie">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+
+            <div class="poll-question" data-poll-name="color">
+                <p>Hair Color?</p>
+                <label><input type="radio" name="color" value="Brown"> Brown</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="color-Brown-bar"></div>
+                    <span class="poll-label">Brown <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <label><input type="radio" name="color" value="Blonde"> Blonde</label>
+                <div class="poll-bar-container">
+                    <div class="poll-bar" id="color-Blonde-bar"></div>
+                    <span class="poll-label">Blonde <span class="poll-count"></span> votes (<span class="poll-percentage"></span>)</span>
+                </div>
+                <br>
+                <button type="submit" class="polls-button" data-poll="color">Place Bet</button>
+                <div class="voter-records" id="records-color">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+
+            <div class="poll-question" data-poll-name="babyWeight">
+                <p>What's your bet on the baby's weight? (e.g., 7 lbs 5 oz)</p>
+                <input type="text" name="babyWeightInput" placeholder="Enter weight here (e.g., 7 lbs 5 oz)">
+                <br>
+                <button type="submit" class="polls-button" data-poll="babyWeight">Place Bet</button>
+                <div class="voter-records" id="records-babyWeight">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+
+            <div class="poll-question" data-poll-name="deliveryDateTime">
+                <p>When do you think the baby will arrive?</p>
+                <input type="datetime-local" name="deliveryDateTimeInput">
+                <br>
+                <button type="submit" class="polls-button" data-poll="deliveryDateTime">Place Bet</button>
+                <div class="voter-records" id="records-deliveryDateTime">
+                    <h3>Recent Bets:</h3>
+                    <ul></ul>
+                </div>
+            </div>
+        </form>
+
+        <div id="result" style="margin-top: 20px;"></div>
+
+        <a href="index.html" class="polls-button">Return to Main Floor</a>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src='main.js'></script>
+    </div>
+</body>
+</html>
