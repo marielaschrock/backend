@@ -50,6 +50,7 @@ router.post('/', async (req, res) => {
 router.post('/:name/vote', async (req, res) => {
     const { option, voterName } = req.body;
     const pollName = req.params.name;
+    const io = req.io; // Get the Socket.io instance from the request
 
     if (!option || !voterName) {
         return res.status(400).json({ message: 'Option and voter name are required' });
@@ -66,19 +67,23 @@ router.post('/:name/vote', async (req, res) => {
             return res.status(409).json({ message: `You (${voterName}) have already voted on this poll.` });
         }
 
-        // Update counts
+        // Update counts for the chosen option
         const currentCount = poll.counts.get(option) || 0;
         poll.counts.set(option, currentCount + 1);
 
         // Record voter's choice
         poll.voterRecords.set(voterName, option);
+        // IMPORTANT: Mark the Map as modified for Mongoose to detect and save changes
+        poll.markModified('voterRecords');
 
-        await poll.save();
+        const updatedPoll = await poll.save();
 
-        req.io.emit('pollUpdate', poll); // Emit real-time update
-        res.json(poll);
+        // Emit real-time update to all connected clients
+        io.emit('pollUpdate', updatedPoll); // Emit the full updated poll object
 
+        res.json(updatedPoll);
     } catch (err) {
+        console.error('Error voting on poll:', err); // Log the error for debugging
         res.status(500).json({ message: err.message });
     }
 });
