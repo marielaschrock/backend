@@ -74,7 +74,7 @@ router.post('/:name/vote', async (req, res) => {
         // Record voter's choice
         poll.voterRecords.set(voterName, option);
         // IMPORTANT: Mark the Map as modified for Mongoose to detect and save changes
-        poll.markModified('voterRecords');
+        poll.markModified('voterRecords'); // <--- THIS LINE IS THE KEY MISSING IN YOUR FILE!
 
         const updatedPoll = await poll.save();
 
